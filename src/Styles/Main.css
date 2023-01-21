@@ -1,3 +1,10 @@
 #main {
   width: 100vw;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10% 0%;
+  min-height: 100vh;
 }
