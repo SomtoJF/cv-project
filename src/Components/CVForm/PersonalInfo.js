@@ -1,3 +1,5 @@
+import '../../Styles/CVForm/PersonalInfo.css'
+
 const PersonalInfo= ({updatePersonalInfo}) =>{
 
     return(
