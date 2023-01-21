@@ -88,7 +88,7 @@ class Main extends Component
     render()
     {
         return(
-            <div className='main'>
+            <div id='main'>
                 <CVForm getPersonalInformation={this.updatePersonalInfoState}/>
             </div>
         )
