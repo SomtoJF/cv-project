@@ -13,3 +13,7 @@ body {
 body {
   background-color: lightgrey;
 }
+
+.App {
+  position: relative;
+}
