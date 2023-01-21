@@ -21,11 +21,11 @@ const PersonalInfo= ({updatePersonalInfo}) =>{
                 placeholder='Doe'
                 onInput={updatePersonalInfo}
             />
-            <label htmlFor='title'> Title</label>
+            <label htmlFor='job-title'> Title</label>
             <input 
                 type='text' 
-                name='title' 
-                id='title' 
+                name='job-title' 
+                id='job-title' 
                 maxLength={20} 
                 placeholder='Senior Software Developer'
                 onInput={updatePersonalInfo}
@@ -36,7 +36,7 @@ const PersonalInfo= ({updatePersonalInfo}) =>{
                 name='email' 
                 id='email' 
                 maxLength={30} 
-                placeholder=''
+                placeholder='username@example.com'
                 onInput={updatePersonalInfo}
             />
             <label htmlFor='address'> Address</label>

@@ -46,7 +46,7 @@ class Main extends Component
                     }
                 })
             break;
-            case 'title':
+            case 'job-title':
                 this.setState({
                     CV:{
                         personalInformation:{
