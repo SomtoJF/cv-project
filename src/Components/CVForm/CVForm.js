@@ -4,7 +4,7 @@ import '../../Styles/CVForm/CVForm.css';
 const CVForm =(props)=>{
     return(
         <form id='CVForm' className='CV'>
-            <PersonalInfo updatePersonalInfo={props.getPersonalInformation}/>
+            <PersonalInfo personalInfo={props.cv.personalInformation} updatePersonalInfo={props.getPersonalInformation}/>
         </form>
     )
 }

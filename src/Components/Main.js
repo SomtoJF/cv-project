@@ -89,7 +89,7 @@ class Main extends Component
     {
         return(
             <div id='main'>
-                <CVForm getPersonalInformation={this.updatePersonalInfoState}/>
+                <CVForm cv={this.state.CV} getPersonalInformation={this.updatePersonalInfoState}/>
             </div>
         )
     }

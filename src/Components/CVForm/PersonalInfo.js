@@ -1,7 +1,6 @@
 import '../../Styles/CVForm/PersonalInfo.css'
 
-const PersonalInfo= ({updatePersonalInfo}) =>{
-
+const PersonalInfo= ({personalInfo, updatePersonalInfo}) =>{
     return(
         <fieldset id='personal-info'>
             <legend id='personal-info-legend'>Personal Information</legend>
@@ -11,7 +10,8 @@ const PersonalInfo= ({updatePersonalInfo}) =>{
                 id='firstname' 
                 maxLength={20} 
                 placeholder='John' 
-                onInput={updatePersonalInfo}
+                value={personalInfo.firstName}
+                onChange={updatePersonalInfo}
             />
             <label htmlFor='lastname'> Last Name</label>
             <input type='text' 
@@ -19,7 +19,8 @@ const PersonalInfo= ({updatePersonalInfo}) =>{
                 id='lastname' 
                 maxLength={20} 
                 placeholder='Doe'
-                onInput={updatePersonalInfo}
+                value={personalInfo.lastname}
+                onChange={updatePersonalInfo}
             />
             <label htmlFor='job-title'> Title</label>
             <input 
@@ -28,7 +29,8 @@ const PersonalInfo= ({updatePersonalInfo}) =>{
                 id='job-title' 
                 maxLength={20} 
                 placeholder='Senior Software Developer'
-                onInput={updatePersonalInfo}
+                value={personalInfo.title}
+                onChange={updatePersonalInfo}
             />
             <label htmlFor='email'> Email</label>
             <input 
@@ -37,7 +39,8 @@ const PersonalInfo= ({updatePersonalInfo}) =>{
                 id='email' 
                 maxLength={30} 
                 placeholder='username@example.com'
-                onInput={updatePersonalInfo}
+                value={personalInfo.email}
+                onChange={updatePersonalInfo}
             />
             <label htmlFor='address'> Address</label>
             <input 
@@ -46,14 +49,16 @@ const PersonalInfo= ({updatePersonalInfo}) =>{
                 id='address' 
                 maxLength={50} 
                 placeholder='21, Boulevard Avenue, Los-Angeles, California'
-                onInput={updatePersonalInfo}
+                value={personalInfo.address}
+                onChange={updatePersonalInfo}
             />
             <label htmlFor='phone'> Tel</label>
             <input 
                 type='tel' 
                 name='phone' 
                 id='phone'
-                onInput={updatePersonalInfo}
+                value={personalInfo.phone}
+                onChange={updatePersonalInfo}
             />
         </fieldset>
     )
