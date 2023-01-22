@@ -18,6 +18,15 @@ class Main extends Component
                     address: '',
                     phone: ''
                 },
+                experience:[
+                    {
+                        position: '',
+                        company: '',
+                        startDate: '',
+                        endDate: '',
+                        description: ''
+                    },
+                ]
             }
         };
     };
@@ -84,6 +93,20 @@ class Main extends Component
             break;
         };
     };
+
+    addNewExperience = ()=>{
+        this.setState({
+            CV:{
+                experience: this.state.CV.experience.concat({
+                    position: '',
+                    company: '',
+                    startDate: '',
+                    endDate: '',
+                    description: ''
+                })
+            }
+        });
+    }
 
     render()
     {
