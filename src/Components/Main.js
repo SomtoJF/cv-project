@@ -97,13 +97,13 @@ class Main extends Component
     addNewExperience = ()=>{
         this.setState({
             CV:{
-                experience: this.state.CV.experience.concat({
+                experience: this.state.CV.experience.concat([{
                     position: '',
                     company: '',
                     startDate: '',
                     endDate: '',
                     description: ''
-                })
+                }])
             }
         });
     }
@@ -112,7 +112,10 @@ class Main extends Component
     {
         return(
             <div id='main'>
-                <CVForm cv={this.state.CV} getPersonalInformation={this.updatePersonalInfoState}/>
+                <CVForm cv={this.state.CV} 
+                    getPersonalInformation={this.updatePersonalInfoState}
+                    addExperience={this.addNewExperience}
+                />
             </div>
         )
     }
