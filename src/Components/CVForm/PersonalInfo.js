@@ -19,7 +19,7 @@ const PersonalInfo= ({personalInfo, updatePersonalInfo}) =>{
                 id='lastname' 
                 maxLength={20} 
                 placeholder='Doe'
-                value={personalInfo.lastname}
+                value={personalInfo.lastName}
                 onChange={updatePersonalInfo}
             />
             <label htmlFor='job-title'> Title</label>
