@@ -1,49 +1,51 @@
 const Experience = (props)=>{
     const experience = props.experience;
     const addExperience = props.addExperience;
-    let items = [];
-    for(let i = 0; i < experience.length; i++){
-        items.push(
-        <div className="anExperience" key={i}>
-            <label htmlFor={`position${i}`}>Postion</label>
+    const deleteExperience = props.deleteExperience;
+    let items = experience?.map((item, index)=>(
+        <div className="anExperience" key={index}>
+            <label htmlFor={`position${index}`}>Postion</label>
             <input 
                 name='position' 
                 type='text' 
                 placeholder='Software Engineer' 
-                id={`position${i}`}/>
-            <label htmlFor={`company${i}`}>Company</label>
+                id={`position${index}`}/>
+            <label htmlFor={`company${index}`}>Company</label>
             <input 
                 name='company' 
                 type='text' 
                 placeholder='Google' 
-                id={`company${i}`}/>
-            <label htmlFor={`start-date${i}`}>Start-date</label>
+                id={`company${index}`}/>
+            <label htmlFor={`start-date${index}`}>Start-date</label>
             <input 
                 name='start-date' 
                 type='date' placeholder='' 
-                id={`start-date${i}`}
+                id={`start-date${index}`}
                 min='2000-01-01'/>
-            <label htmlFor={`end-date${i}`}>End-date</label>
+            <label htmlFor={`end-date${index}`}>End-date</label>
             <input 
                 name='end-date' 
                 type='date' 
                 placeholder='' 
-                id={`end-date${i}`} 
+                id={`end-date${index}`} 
                 min='2000-01-01'/>
-            <label htmlFor={`description${1}`}>Job Description</label>
+            <label htmlFor={`description${index}`}>Job Description</label>
             <textarea 
                 name='description' 
-                id={`description${1}`} 
+                id={`description${index}`} 
                 rows="4" 
                 cols="50" 
                 placeholder='Job Description Here' 
-                style={{resize:"none"}}></textarea>
-        </div>)
-    };
+                style={{width: '100%'}} 
+            />
+            {index > 0? <button type='button' onClick={()=>deleteExperience(index)}>delete</button>: ''}
+        </div>
+    ));
+    
     return(
         <fieldset id='experience'>
             <legend>Experience</legend>
-            {items}
+            { items }
             <button type='button' className='add' id='addExperience' onClick={addExperience}>Add</button>
         </fieldset>
     )
