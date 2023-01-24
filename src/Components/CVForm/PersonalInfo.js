@@ -6,7 +6,7 @@ const PersonalInfo= ({personalInfo, updatePersonalInfo}) =>{
             <legend id='personal-info-legend'>Personal Information</legend>
             <label htmlFor='firstname'> First Name</label>
             <input type='text' 
-                name='firstname' 
+                name='firstName' 
                 id='firstname' 
                 maxLength={20} 
                 placeholder='John' 
@@ -15,7 +15,7 @@ const PersonalInfo= ({personalInfo, updatePersonalInfo}) =>{
             />
             <label htmlFor='lastname'> Last Name</label>
             <input type='text' 
-                name='lastname' 
+                name='lastName' 
                 id='lastname' 
                 maxLength={20} 
                 placeholder='Doe'
@@ -25,7 +25,7 @@ const PersonalInfo= ({personalInfo, updatePersonalInfo}) =>{
             <label htmlFor='job-title'> Title</label>
             <input 
                 type='text' 
-                name='job-title' 
+                name='title' 
                 id='job-title' 
                 maxLength={20} 
                 placeholder='Senior Software Developer'

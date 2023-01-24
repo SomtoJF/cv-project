@@ -6,7 +6,7 @@ const CVForm =(props)=>{
     return(
         <form id='CVForm' className='CV'>
             <PersonalInfo personalInfo={props.cv.personalInformation} updatePersonalInfo={props.getPersonalInformation}/>
-            <Experience experience={props.cv.experience} addExperience={props.addExperience}/>
+            <Experience experience={props.cv.experience} deleteExperience={props.deleteExperience} addExperience={props.addExperience}/>
         </form>
     )
 }

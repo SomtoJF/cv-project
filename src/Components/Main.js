@@ -9,112 +9,72 @@ class Main extends Component
         super();
 
         this.state = {
-            CV:{
-                personalInformation: {
-                    firstName: '',
-                    lastName: '',
-                    title: '',
-                    email: '',
-                    address: '',
-                    phone: ''
-                },
-                experience:[
-                    {
-                        position: '',
-                        company: '',
-                        startDate: '',
-                        endDate: '',
-                        description: ''
-                    },
-                ]
-            }
-        };
-    };
-
-    updatePersonalInfoState = (e) => {
-        const id = e.target.id;
-        // console.log(id);
-        switch(id)
-        {
-            case 'firstname':
-                this.setState({
-                    CV:{
-                        personalInformation:{
-                            firstName: e.target.value
-                        }
-                    }
-                });
-                // console.log(this.state.CV.personalInformation.firstName)
-            break;
-            case 'lastname':
-                this.setState({
-                    CV:{
-                        personalInformation:{
-                            lastName: e.target.value
-                        }
-                    }
-                })
-            break;
-            case 'job-title':
-                this.setState({
-                    CV:{
-                        personalInformation:{
-                            title: e.target.value
-                        }
-                    }
-                })
-            break;
-            case 'email':
-                this.setState({
-                    CV:{
-                        personalInformation:{
-                            email: e.target.value
-                        }
-                    }
-                })
-            break;
-            case 'address':
-                this.setState({
-                    CV:{
-                        personalInformation:{
-                            address: e.target.value
-                        }
-                    }
-                })
-            break;
-            case 'phone':
-                this.setState({
-                    CV:{
-                        personalInformation:{
-                            phone: e.target.value
-                        }
-                    }
-                })
-            break;
-        };
-    };
-
-    addNewExperience = ()=>{
-        this.setState({
-            CV:{
-                experience: this.state.CV.experience.concat([{
+            personalInformation: {
+                firstName: '',
+                lastName: '',
+                title: '',
+                email: '',
+                address: '',
+                phone: ''
+            },
+            experience:[
+                {
                     position: '',
                     company: '',
                     startDate: '',
                     endDate: '',
                     description: ''
-                }])
-            }
+                },
+            ]
+            
+        };
+    };
+
+    updatePersonalInfoState = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({
+           personalInformation: {
+                firstName: this.state.personalInformation.firstName,
+                lastName: this.state.personalInformation.lastName,
+                title: this.state.personalInformation.title,
+                email: this.state.personalInformation.email,
+                address: this.state.personalInformation.address,
+                phone: this.state.personalInformation.phone,
+               [name]: value,
+           }
         });
-    }
+        // console.log(this.state)
+    };
+
+    addNewExperience = ()=>{
+        this.setState({
+            experience: this.state.experience.concat([{
+                position: '',
+                company: '',
+                startDate: '',
+                endDate: '',
+                description: ''
+            }])
+            
+        });
+    };
+
+    deleteExperience = (key)=>{
+        console.log(`key: ${key}`)
+        this.setState({
+            experience: this.state.experience.filter((item, index)=> key !== index)
+        })
+    };
 
     render()
     {
         return(
             <div id='main'>
-                <CVForm cv={this.state.CV} 
+                <CVForm cv={this.state} 
                     getPersonalInformation={this.updatePersonalInfoState}
                     addExperience={this.addNewExperience}
+                    deleteExperience={this.deleteExperience}
                 />
             </div>
         )
