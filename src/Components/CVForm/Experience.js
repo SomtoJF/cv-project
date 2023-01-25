@@ -1,3 +1,5 @@
+import '../../Styles/CVForm/Experience.css';
+
 const Experience = (props)=>{
     const experience = props.experience;
     const addExperience = props.addExperience;
@@ -5,7 +7,7 @@ const Experience = (props)=>{
     const updateExperience = props.updateExperience;
     let items = experience?.map((item, index)=>(
         <div className="anExperience" key={index}>
-            <label htmlFor={`position${index}`}>Postion</label>
+            <label htmlFor={`position${index}`}>Position</label>
             <input 
                 name='position' 
                 type='text' 
@@ -60,6 +62,7 @@ const Experience = (props)=>{
                 style={{width: '100%'}} 
             />
             {index > 0? <button type='button' onClick={()=>deleteExperience(index)}>delete</button>: ''}
+            <hr />
         </div>
     ));
     
