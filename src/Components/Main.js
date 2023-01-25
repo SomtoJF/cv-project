@@ -47,6 +47,27 @@ class Main extends Component
         // console.log(this.state)
     };
 
+    updateExperienceState = (e, indexValue) =>{
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({
+           experience: this.state.experience.map((item, index)=> {
+               if(index == indexValue)
+               {
+                   return {
+                    position: item.position,
+                    company: item.company,
+                    startDate: item.startDate,
+                    endDate: item.endDate,
+                    description: item.description,
+                    [name]: value,
+                   }
+               };
+           })
+        });
+        console.log(this.state)
+    };
+
     addNewExperience = ()=>{
         this.setState({
             experience: this.state.experience.concat([{
@@ -75,6 +96,7 @@ class Main extends Component
                     getPersonalInformation={this.updatePersonalInfoState}
                     addExperience={this.addNewExperience}
                     deleteExperience={this.deleteExperience}
+                    getExperience={this.updateExperienceState}
                 />
             </div>
         )
