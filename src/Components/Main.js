@@ -25,6 +25,15 @@ class Main extends Component
                     endDate: '',
                     description: ''
                 },
+            ],
+            education: [
+                {
+                    school: '',
+                    degree: '',
+                    startDate: '',
+                    endDate: '',
+                    description: '',
+                }
             ]
             
         };
@@ -44,7 +53,6 @@ class Main extends Component
                [name]: value,
            }
         });
-        // console.log(this.state)
     };
 
     updateExperienceState = (e, indexValue) =>{
@@ -52,7 +60,7 @@ class Main extends Component
         const value = e.target.value;
         this.setState({
            experience: this.state.experience.map((item, index)=> {
-               if(index == indexValue)
+               if(index === indexValue)
                {
                    return {
                     position: item.position,
@@ -62,10 +70,54 @@ class Main extends Component
                     description: item.description,
                     [name]: value,
                    }
+               }
+               else{
+                   return item
+               }
+           })
+        });
+    };
+
+    updateEducationState = (e, indexValue) =>{
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({
+           education: this.state.education.map((item, index)=> {
+               if(index === indexValue)
+               {
+                   return {
+                    school: item.school,
+                    degree: item.degree,
+                    startDate: item.startDate,
+                    endDate: item.endDate,
+                    description: item.description,
+                    [name]: value,
+                   }
+               }else{
+                   return item
                };
            })
         });
-        console.log(this.state)
+        // console.log(this.state)
+    };
+
+    addNewEducation = () =>{
+        this.setState({
+            education: this.state.education.concat([{
+                school: '',
+                degree: '',
+                startDate: '',
+                endDate: '',
+                description: '',
+            }])
+        });
+    };
+
+    deleteEducation = (key)=>{
+        console.log(`key: ${key}`)
+        this.setState({
+            education: this.state.education.filter((item, index)=> key !== index)
+        })
     };
 
     addNewExperience = ()=>{
@@ -94,9 +146,14 @@ class Main extends Component
             <div id='main'>
                 <CVForm cv={this.state} 
                     getPersonalInformation={this.updatePersonalInfoState}
+                    getExperience={this.updateExperienceState}
+                    getEducation={this.updateEducationState}
+                    addEducation={this.addNewEducation}
                     addExperience={this.addNewExperience}
                     deleteExperience={this.deleteExperience}
-                    getExperience={this.updateExperienceState}
+                    deleteEducation={this.deleteEducation}
+                    
+
                 />
             </div>
         )
