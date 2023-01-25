@@ -1,0 +1,36 @@
+#education legend {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #333333;
+}
+
+#education label {
+  display: block;
+  font-weight: 700;
+  color: #333333;
+}
+
+#education input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 25px;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+}
+
+#education button {
+  display: block;
+  width: 100%;
+  height: 30px;
+  font-weight: 700;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0px;
+  color: white;
+}
+
+#education button:hover {
+  background-color: #36454f;
+}
