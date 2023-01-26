@@ -1,6 +1,7 @@
 import { Component } from "react";
 import '../Styles/Main.css';
 import CVForm from './CVForm/CVForm';
+import CVPreview from "./CVPreview/CVPreview";
 
 class Main extends Component
 {
@@ -134,7 +135,7 @@ class Main extends Component
     };
 
     deleteExperience = (key)=>{
-        console.log(`key: ${key}`)
+        // console.log(`key: ${key}`)
         this.setState({
             experience: this.state.experience.filter((item, index)=> key !== index)
         })
@@ -152,9 +153,8 @@ class Main extends Component
                     addExperience={this.addNewExperience}
                     deleteExperience={this.deleteExperience}
                     deleteEducation={this.deleteEducation}
-                    
-
                 />
+                <CVPreview state={this.state} />
             </div>
         )
     }
