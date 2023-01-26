@@ -1,0 +1,28 @@
+#work-experience {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.work-experience-item {
+  height: 20vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr 3fr;
+  grid-template-columns: 2fr 1fr;
+}
+
+.work-experience-item > * {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.work-experience-item > h4 {
+  font-size: max(1vw, 0.8rem);
+}
+
+.work-experience-item > p {
+  grid-column: 1 / 3;
+  font-size: min(3vw, 1rem);
+}
