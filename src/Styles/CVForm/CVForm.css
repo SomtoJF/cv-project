@@ -1,10 +1,10 @@
 #CVForm {
-  box-sizing: border-box;
   background-color: #eeeeee;
-  padding: 5% 2.5%;
 }
 
 .CV {
+  box-sizing: border-box;
+  padding: 5% 2.5%;
   width: max(60vw, 350px);
   min-height: 100vh;
   box-shadow: 0px 0px 15px gray;
