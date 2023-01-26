@@ -8,8 +8,11 @@
   font-weight: 500;
 }
 
-#personalInfo-preview > div > p:first-child {
+.new-font {
   font-family: "Cormorant Garamond", Georgia, "Times New Roman", Times, serif;
+}
+
+#personalInfo-preview > div > p:first-child {
   font-size: max(3vw, 1.5rem);
   font-weight: 700;
 }

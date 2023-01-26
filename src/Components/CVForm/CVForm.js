@@ -22,6 +22,7 @@ const CVForm =(props)=>{
                 deleteEducation={props.deleteEducation}
                 updateEducation={props.getEducation}
             />
+            <button type='button' id='print'>Print PDF</button>
         </form>
     )
 }

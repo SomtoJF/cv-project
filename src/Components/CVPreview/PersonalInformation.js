@@ -10,7 +10,7 @@ const PersonalInformation=(props)=>{
     return(
         <div id='personalInfo-preview'>
             <div>
-                <p>{firstName.toUpperCase() + ' ' + LastName.toUpperCase()}</p>
+                <p className='new-font'>{firstName.toUpperCase() + ' ' + LastName.toUpperCase()}</p>
                 <p>{title.toUpperCase()}</p>
                 <hr />
             </div>
