@@ -27,7 +27,7 @@ const PersonalInfo= ({personalInfo, updatePersonalInfo}) =>{
                 type='text' 
                 name='title' 
                 id='job-title' 
-                maxLength={20} 
+                maxLength={50} 
                 placeholder='Senior Software Developer'
                 value={personalInfo.title}
                 onChange={updatePersonalInfo}
