@@ -2,8 +2,14 @@ import PersonalInfo from "./PersonalInfo";
 import '../../Styles/CVForm/CVForm.css';
 import Experience from './Experience';
 import Education from './Education';
+import html2pdf from 'html2pdf.js';
 
 const CVForm =(props)=>{
+    function printCV (){
+        const outputCV = document.getElementById('preview');
+        html2pdf(outputCV);
+    };
+
     return(
         <form id='CVForm' className='CV'>
             <PersonalInfo 
@@ -22,7 +28,7 @@ const CVForm =(props)=>{
                 deleteEducation={props.deleteEducation}
                 updateEducation={props.getEducation}
             />
-            <button type='button' id='print'>Print PDF</button>
+            <button type='button' id='print' onClick={printCV}>Print PDF</button>
         </form>
     )
 }
