@@ -99,7 +99,6 @@ class Main extends Component
                };
            })
         });
-        // console.log(this.state)
     };
 
     addNewEducation = () =>{
@@ -135,7 +134,6 @@ class Main extends Component
     };
 
     deleteExperience = (key)=>{
-        // console.log(`key: ${key}`)
         this.setState({
             experience: this.state.experience.filter((item, index)=> key !== index)
         })
