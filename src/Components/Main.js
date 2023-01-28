@@ -35,7 +35,8 @@ class Main extends Component
                     endDate: '',
                     description: '',
                 }
-            ]
+            ],
+            skills: []
             
         };
     };
@@ -101,6 +102,18 @@ class Main extends Component
         });
     };
 
+    updateSkillState = (e, indexValue)=>{
+        const value = e.target.value;
+        this.setState({
+            skills: this.state.skills.map((skill, index)=>{
+                if(index === indexValue){
+                    return value;
+                }
+                return skill;
+            })
+        });
+    };
+
     addNewEducation = () =>{
         this.setState({
             education: this.state.education.concat([{
@@ -110,6 +123,18 @@ class Main extends Component
                 endDate: '',
                 description: '',
             }])
+        });
+    };
+
+    addNewSkill = ()=>{
+        this.setState({
+            skills: this.state.skills.concat('')
+        });
+    };
+
+    deleteSkill = (key)=>{
+        this.setState({
+            skills: this.state.skills.filter((item, index)=> key !== index)
         });
     };
 
@@ -147,10 +172,13 @@ class Main extends Component
                     getPersonalInformation={this.updatePersonalInfoState}
                     getExperience={this.updateExperienceState}
                     getEducation={this.updateEducationState}
+                    getSkill={this.updateSkillState}
                     addEducation={this.addNewEducation}
                     addExperience={this.addNewExperience}
+                    addSkill={this.addNewSkill}
                     deleteExperience={this.deleteExperience}
                     deleteEducation={this.deleteEducation}
+                    deleteSkill = {this.deleteSkill}
                 />
                 <CVPreview state={this.state} />
             </div>
