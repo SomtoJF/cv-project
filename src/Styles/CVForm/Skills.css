@@ -1,0 +1,34 @@
+#skills legend {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #333333;
+}
+
+#skills input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 25px;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+}
+
+#skills button {
+  display: block;
+  width: 100%;
+  height: 30px;
+  font-weight: 700;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0px;
+  color: white;
+}
+
+#skills button:hover {
+  background-color: #36454f;
+}
+
+.skill-item {
+  margin: 10px 0px;
+}
