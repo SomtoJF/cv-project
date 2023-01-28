@@ -2,6 +2,7 @@ import PersonalInfo from "./PersonalInfo";
 import '../../Styles/CVForm/CVForm.css';
 import Experience from './Experience';
 import Education from './Education';
+import Skills from "./Skills";
 import html2pdf from 'html2pdf.js';
 
 const CVForm =(props)=>{
@@ -33,6 +34,12 @@ const CVForm =(props)=>{
                 addEducation={props.addEducation}
                 deleteEducation={props.deleteEducation}
                 updateEducation={props.getEducation}
+            />
+            <Skills 
+                skills={props.cv.skills}
+                addSkill={props.addSkill}
+                updateSkill = {props.getSkill}
+                deleteSkill={props.deleteSkill}
             />
             <button type='button' id='print' onClick={printCV}>Print PDF</button>
         </form>
