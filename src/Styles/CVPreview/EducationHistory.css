@@ -3,12 +3,16 @@
   flex-direction: column;
 }
 
+#education-history > h4 {
+  margin: 10px 0px;
+}
+
 .education-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 4fr;
-  height: 20vh;
-  row-gap: 10px;
+  min-height: fit-content;
+  margin: 10px 0px;
 }
 
 .education-item > h4 {
