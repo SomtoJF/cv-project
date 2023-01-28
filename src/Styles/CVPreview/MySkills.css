@@ -1,0 +1,7 @@
+#my-skills > h4 {
+  margin-bottom: 10px;
+}
+
+#my-skills li {
+  font-size: min(3vw, 1rem);
+}

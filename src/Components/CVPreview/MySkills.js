@@ -1,3 +1,5 @@
+import '../../Styles/CVPreview/MySkills.css';
+
 const MySkills = (props)=>{
     const skills = props.skills;
     const items = skills.map((item, index)=>(
