@@ -1,7 +1,6 @@
 #education-history {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .education-item {
