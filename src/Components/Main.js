@@ -1,189 +1,159 @@
-import { Component } from "react";
+import { useState } from "react";
 import '../Styles/Main.css';
 import CVForm from './CVForm/CVForm';
 import CVPreview from "./CVPreview/CVPreview";
 
-class Main extends Component
+const Main = ()=>
 {
-    constructor()
-    {
-        super();
 
-        this.state = {
-            personalInformation: {
-                firstName: '',
-                lastName: '',
-                title: '',
-                email: '',
-                address: '',
-                phone: ''
-            },
-            experience:[
-                {
-                    position: '',
-                    company: '',
-                    startDate: '',
-                    endDate: '',
-                    description: ''
-                },
-            ],
-            education: [
-                {
-                    school: '',
-                    degree: '',
-                    startDate: '',
-                    endDate: '',
-                    description: '',
-                }
-            ],
-            skills: []
-            
-        };
-    };
+    const [personalInformation, setPersonalInformation] = useState({
+        firstName: '',
+        lastName: '',
+        title: '',
+        email: '',
+        address: '',
+        phone: ''
+    })
+    const [experience, setExperience] = useState([
+        {
+            position: '',
+            company: '',
+            startDate: '',
+            endDate: '',
+            description: ''
+        },
+    ]);
+    const [education, setEducation] = useState([
+        {
+            school: '',
+            degree: '',
+            startDate: '',
+            endDate: '',
+            description: '',
+        }
+    ]);
+    const [skills, setSkills] = useState([]);
+        
 
-    updatePersonalInfoState = (e) => {
+    const updatePersonalInfoState = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        this.setState({
-           personalInformation: {
-                firstName: this.state.personalInformation.firstName,
-                lastName: this.state.personalInformation.lastName,
-                title: this.state.personalInformation.title,
-                email: this.state.personalInformation.email,
-                address: this.state.personalInformation.address,
-                phone: this.state.personalInformation.phone,
-               [name]: value,
-           }
+        setPersonalInformation({
+            ...personalInformation,
+            [name]: value,
         });
     };
 
-    updateExperienceState = (e, indexValue) =>{
+    const updateExperienceState = (e, indexValue) =>{
         const name = e.target.name;
         const value = e.target.value;
-        this.setState({
-           experience: this.state.experience.map((item, index)=> {
+        setExperience(
+            experience.map((item, index)=> {
                if(index === indexValue)
                {
                    return {
-                    position: item.position,
-                    company: item.company,
-                    startDate: item.startDate,
-                    endDate: item.endDate,
-                    description: item.description,
+                    ...item,
                     [name]: value,
                    }
                }
                else{
                    return item
-               }
+               };
            })
-        });
+        );
     };
 
-    updateEducationState = (e, indexValue) =>{
+    const updateEducationState = (e, indexValue) =>{
         const name = e.target.name;
         const value = e.target.value;
-        this.setState({
-           education: this.state.education.map((item, index)=> {
+        setEducation(
+            education.map((item, index)=> {
                if(index === indexValue)
                {
                    return {
-                    school: item.school,
-                    degree: item.degree,
-                    startDate: item.startDate,
-                    endDate: item.endDate,
-                    description: item.description,
+                    ...item,
                     [name]: value,
                    }
                }else{
                    return item
                };
            })
-        });
+        );
     };
 
-    updateSkillState = (e, indexValue)=>{
+    const updateSkillState = (e, indexValue)=>{
         const value = e.target.value;
-        this.setState({
-            skills: this.state.skills.map((skill, index)=>{
+        setSkills(
+            skills.map((skill, index)=>{
                 if(index === indexValue){
                     return value;
                 }
                 return skill;
             })
-        });
+        );
     };
 
-    addNewEducation = () =>{
-        this.setState({
-            education: this.state.education.concat([{
+    const addNewEducation = () =>{
+        setEducation(
+            education.concat([{
                 school: '',
                 degree: '',
                 startDate: '',
                 endDate: '',
                 description: '',
             }])
-        });
+        );
     };
 
-    addNewSkill = ()=>{
-        this.setState({
-            skills: this.state.skills.concat('')
-        });
+    const addNewSkill = ()=>{
+        setSkills(skills.concat(''));
     };
 
-    deleteSkill = (key)=>{
-        this.setState({
-            skills: this.state.skills.filter((item, index)=> key !== index)
-        });
+    const deleteSkill = (key)=>{
+        setSkills(skills.filter((item, index)=> key !== index));
     };
 
-    deleteEducation = (key)=>{
+    const deleteEducation = (key)=>{
         console.log(`key: ${key}`)
-        this.setState({
-            education: this.state.education.filter((item, index)=> key !== index)
-        })
+        setEducation(education.filter((item, index)=> key !== index))
     };
 
-    addNewExperience = ()=>{
-        this.setState({
-            experience: this.state.experience.concat([{
+    const addNewExperience = ()=>{
+        setExperience(
+            experience.concat([{
                 position: '',
                 company: '',
                 startDate: '',
                 endDate: '',
                 description: ''
-            }])
-            
-        });
+            }])  
+        );
     };
 
-    deleteExperience = (key)=>{
-        this.setState({
-            experience: this.state.experience.filter((item, index)=> key !== index)
-        })
+    const deleteExperience = (key)=>{
+        setExperience(experience.filter((item, index)=> key !== index))
     };
 
-    render()
-    {
-        return(
-            <div id='main'>
-                <CVForm cv={this.state} 
-                    getPersonalInformation={this.updatePersonalInfoState}
-                    getExperience={this.updateExperienceState}
-                    getEducation={this.updateEducationState}
-                    getSkill={this.updateSkillState}
-                    addEducation={this.addNewEducation}
-                    addExperience={this.addNewExperience}
-                    addSkill={this.addNewSkill}
-                    deleteExperience={this.deleteExperience}
-                    deleteEducation={this.deleteEducation}
-                    deleteSkill = {this.deleteSkill}
-                />
-                <CVPreview state={this.state} />
-            </div>
-        )
-    }
-}
+    
+    let state = {personalInformation:personalInformation, education:education, experience:experience, skills:skills};
+    return(
+        <div id='main'>
+            <CVForm cv={state} 
+                getPersonalInformation={updatePersonalInfoState}
+                getExperience={updateExperienceState}
+                getEducation={updateEducationState}
+                getSkill={updateSkillState}
+                addEducation={addNewEducation}
+                addExperience={addNewExperience}
+                addSkill={addNewSkill}
+                deleteExperience={deleteExperience}
+                deleteEducation={deleteEducation}
+                deleteSkill = {deleteSkill}
+            />
+            <CVPreview state={state} />
+        </div>
+    )
+};
+
 
 export default Main;
